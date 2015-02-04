@@ -8,3 +8,5 @@ meteor-platform
 insecure
 iron:router
 mike:mocha
+cfs:http-methods
+http
