@@ -25,6 +25,10 @@ footer {
 	padding: 10px;
 }
 
+.g-footer-bump {
+	margin-bottom: 100px;
+}
+
 .g-body {
 	height: 1000px;
 	padding-bottom: 10px;
