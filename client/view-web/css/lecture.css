@@ -2,3 +2,24 @@ ul {
 	list-style-type: none;
 	margin: 0px;
 }
+
+li.lecture {
+	height: 80px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-top: solid;
+	border-top-width: 1px;
+	border-top-color: #c2c2c2;
+}
+
+.lecture-title {
+	margin-top: 10px;
+	font-size: 24px;
+	font-weight: 50;
+}
+
+.lecture-speaker {
+	font-size: 16px;
+	font-weight: 50;	
+	font-style: italic;
+}
