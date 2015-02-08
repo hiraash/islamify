@@ -4,6 +4,7 @@ if (!(typeof MochaWeb === 'undefined')){
   
     describe("Application level tests", function(){
 
+    	//TODO: MUST BE REMOVED
 		it("should disconnect DDP at startup in production", function(){
 			setTimeout( function(){
 				if( App.isDevelopment() ){

@@ -16,10 +16,10 @@ Server = function(){
 
 }();
 
-HTTP.methods({
+Meteor.methods({
 
 	isDevelopment: function(){
-		return Server.isDevelopment().toString();
+		return Server.isDevelopment();
 	}
 	
 });

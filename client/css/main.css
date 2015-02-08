@@ -1,0 +1,33 @@
+* {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+
+	font-family: 'Lato';
+}
+
+h1 {
+	font-family: 'Lato';
+	font-weight: 200;
+}
+
+header {
+	background-color: #F6F6F6;
+	padding: 10px;
+	position: fixed;
+	height: 80px;
+	width: 100%;
+	top: 0px;
+}
+
+footer {
+	background-color: #F6F6F6;	
+	padding: 10px;
+}
+
+.g-body {
+	height: 1000px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 80px;
+}

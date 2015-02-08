@@ -9,17 +9,23 @@ App = function(){
 
 	Meteor.startup( function(){
 
-		//Get the environment details
-		App.call('isDevelopment', function( result ){
-			isDev = (result.content != 'false');
-
-			//Disconnect DDP if the env is not dev
-			if( Meteor.status().connected && !isDev ){
-				Meteor.disconnect();
-			}
+		Meteor.call( 'isDevelopment', function( error, result ){
+			isDev = result;
 		});
 
+		//Get the environment details
+		// App.call('isDevelopment', function( result ){
+		// 	isDev = (result.content != 'false');
+
+		// 	//Disconnect DDP if the env is not dev
+		// 	if( Meteor.status().connected && !isDev ){
+		// 		Meteor.disconnect();
+		// 	}
+		// });
+
 	});
+
+	
 	
 	return {
 
