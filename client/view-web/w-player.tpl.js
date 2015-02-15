@@ -18,7 +18,7 @@ Template.wPlayer.rendered = function () {
 
         },
         timeupdate: function(event) {
-        	if( event.jPlayer.status.currentPercentAbsolute > 0 ) {
+        	if( event.jPlayer.status.currentPercentAbsolute > 0 && event.jPlayer.status.currentPercentAbsolute < 100 ) {
 	        	$(".wp-play-handle").css("display", "inline");
 				$(".wp-play-handle").css("left", event.jPlayer.status.currentPercentAbsolute + "%");
 			} else {
@@ -26,7 +26,7 @@ Template.wPlayer.rendered = function () {
 			}
 		},
 		volumechange: function(event) {
-        	if( event.jPlayer.options.volume > 0 && !event.jPlayer.options.muted ) {
+        	if( !event.jPlayer.options.muted ) {
 	        	$(".wp-volume-handle").css("display", "inline");
 				$(".wp-volume-handle").css("left", (event.jPlayer.options.volume * 100) + "%");
 			} else {
@@ -38,23 +38,26 @@ Template.wPlayer.rendered = function () {
 		wmode: "window",
 		useStateClassSkin: true,
 		autoBlur: false,
-		smoothPlayBar: true,
 		keyEnabled: true,
 		remainingDuration: true,
 		toggleDuration: true
     });
 
+	$(".wp-seek-bar").slider({
+		max: 100,
+		min: 0,
+		slide: function( event, ui ){
+			$("#jp-control").jPlayer( "playHead", ui.value );
+		}
+	});
+
+	$(".wp-volume-bar").slider({
+		max: 1,
+		min: 0,
+		step: .01,
+		slide: function( event, ui ){
+			$("#jp-control").jPlayer( "volume", ui.value );
+		}
+	});
 
 };
-
-Template.wPlayer.events({
-	'click .wp-seek-bar': function ( event ) {
-		var $bar = $(event.currentTarget),
-			offset = $bar.offset(),
-			x = event.pageX - offset.left,
-			w = $bar.width(),
-			p = 100 * x / w;
-
-		$("#jp-control").jPlayer( "playHead", p );
-	}
-});
