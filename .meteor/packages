@@ -8,4 +8,4 @@ meteor-platform
 insecure
 iron:router
 mike:mocha
-bootstrap
+mrt:bootstrap-3

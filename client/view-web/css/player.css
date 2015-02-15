@@ -1,12 +1,78 @@
-.player-container {
+.wp-container {
 	position: fixed;
 	bottom: 0px;
 	width: 100%;
-	height: 100px;
+	height: 300px;
 
 	background-color: #ffffff;
 	border-top: solid;
 	border-top-width: 1px;
 	border-top-color: #c2c2c2;
 
+	overflow: none;
+
 }
+
+.wp-speaker-image {
+	width: 90px;
+	height: 80px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: solid;
+	border-width: 1px;
+	border-color: #c2c2c2;
+	float: left;
+}
+
+.wp-row {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.wp-player-area {
+	width: auto;
+
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.wp-control-area {
+	width: auto;
+	height: 50px;
+}
+
+.wp-title-area {
+	width: auto;
+	text-align: center;
+
+	font-size: 16px;
+}
+
+.wp-control-icon {
+	font-size: 32px;
+}
+
+.wp-small-icon {
+	font-size: 24px;
+}
+
+.wp-progress-bar {
+	width: 700px;
+}
+
+.wp-path-bar {
+	height: 5px;
+	background-color: #F6F6F6;
+}
+
+.wp-value-bar {
+	background-color: #333333;
+	height: 5px;
+}
+
+.wp-volume-bar {
+	width: 100px;
+}
+
