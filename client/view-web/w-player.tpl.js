@@ -17,6 +17,22 @@ Template.wPlayer.rendered = function () {
             });
 
         },
+        timeupdate: function(event) {
+        	if( event.jPlayer.status.currentPercentAbsolute > 0 ) {
+	        	$(".wp-play-handle").css("display", "inline");
+				$(".wp-play-handle").css("left", event.jPlayer.status.currentPercentAbsolute + "%");
+			} else {
+				$(".wp-play-handle").css("display", "none");
+			}
+		},
+		volumechange: function(event) {
+        	if( event.jPlayer.options.volume > 0 && !event.jPlayer.options.muted ) {
+	        	$(".wp-volume-handle").css("display", "inline");
+				$(".wp-volume-handle").css("left", (event.jPlayer.options.volume * 100) + "%");
+			} else {
+				$(".wp-volume-handle").css("display", "none");
+			}
+		},
         swfPath: "http://jplayer.org/latest/dist/jplayer",
         supplied: "mp3, oga",
 		wmode: "window",
@@ -30,3 +46,15 @@ Template.wPlayer.rendered = function () {
 
 
 };
+
+Template.wPlayer.events({
+	'click .wp-seek-bar': function ( event ) {
+		var $bar = $(event.currentTarget),
+			offset = $bar.offset(),
+			x = event.pageX - offset.left,
+			w = $bar.width(),
+			p = 100 * x / w;
+
+		$("#jp-control").jPlayer( "playHead", p );
+	}
+});
