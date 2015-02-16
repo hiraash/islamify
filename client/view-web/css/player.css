@@ -44,10 +44,9 @@
 }
 
 .wp-title-area {
-	width: auto;
-	text-align: center;
-
-	font-size: 16px;
+	text-align: left;
+	font-size: 18px;
+	margin-left: 10px;
 }
 
 .wp-control-icon {

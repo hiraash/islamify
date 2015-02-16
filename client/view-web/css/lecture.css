@@ -4,7 +4,7 @@ ul {
 }
 
 li.lecture {
-	height: 80px;
+	height: 90px;
 	padding-left: 10px;
 	padding-right: 10px;
 	border-top: solid;
@@ -13,13 +13,32 @@ li.lecture {
 }
 
 .lecture-title {
-	margin-top: 10px;
+	margin-top: 5px;
 	font-size: 24px;
 	font-weight: 50;
+}
+
+.lecture-language {
+	vertical-align: middle;
+	font-size: 10px;
+	font-weight: normal;
+	margin-left: 5px;
+	background-color: #990100;
 }
 
 .lecture-speaker {
 	font-size: 16px;
 	font-weight: 50;	
 	font-style: italic;
+}
+
+.lecture-action {
+	margin-top: 3px;
+	display: block;
+}
+
+.lecture-tag {
+	background-color: #E8E8E8;
+	color: #888888;
+	font-weight: normal;
 }

@@ -1,12 +1,20 @@
 <template name="wLecture">
 
-	<li class="lecture">
-		<div>
-			<div class="lecture-title">{{name}}</div>
+	<li class="lecture row-fluid">
+		<div class="pull-left">
+			<div class="lecture-title">{{name}}
+				<span class="label label-warning lecture-language">{{language}}</span>
+			</div>
 			<div class="lecture-speaker">{{speaker}}</div>
+			<div>
+				{{#each tags}}
+					<span class="label label-default lecture-tag">{{this}}</span>
+				{{/each}}
+			</div>
 		</div>
 		<div class="pull-right">
-			<a href="#">Play</a>
+			<a href="#" class="lecture-action">Play</a>
+			<a href="#" class="lecture-action">Add</a>
 		</div>
 	</li>
 
