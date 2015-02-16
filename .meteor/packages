@@ -9,3 +9,4 @@ insecure
 iron:router
 mike:mocha
 mrt:bootstrap-3
+autopublish
