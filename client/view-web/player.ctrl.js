@@ -72,7 +72,12 @@ Player = function() {
 						autoBlur: false,
 						keyEnabled: true,
 						remainingDuration: true,
-						toggleDuration: true
+						toggleDuration: true,
+						timeFormat: {
+							showHour: true,
+							showMin: true,
+							showSec: true
+						}
 				    });
 
 					$(".wp-seek-bar").slider({
