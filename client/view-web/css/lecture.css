@@ -1,6 +1,10 @@
 ul {
 	list-style-type: none;
 	margin: 0px;
+	padding-left: 0px;
+	border-bottom: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #c2c2c2; 
 }
 
 li.lecture {
@@ -10,6 +14,18 @@ li.lecture {
 	border-top: solid;
 	border-top-width: 1px;
 	border-top-color: #c2c2c2;
+}
+
+.lecture-image {
+	width: 70px;
+	height: 70px;
+	margin-top: 10px;
+	margin-right: 10px;
+	border: solid;
+	border-width: 1px;
+	border-color: #c2c2c2;
+	border-radius: 35px;
+	float: left;
 }
 
 .lecture-title {

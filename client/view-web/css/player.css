@@ -14,13 +14,14 @@
 }
 
 .wp-speaker-image {
-	width: 90px;
+	width: 80px;
 	height: 80px;
 	margin-left: 10px;
 	margin-right: 10px;
 	border: solid;
 	border-width: 1px;
 	border-color: #c2c2c2;
+	border-radius: 40px;
 	float: left;
 }
 

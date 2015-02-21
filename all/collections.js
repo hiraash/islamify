@@ -25,8 +25,7 @@
  */
 Lecture = new Meteor.Collection('lecture', {
 	transform: function( doc ){
-		doc.speaker = Speaker.findOne({ _id: doc.speakerID });
-		return doc;
+		return new Model.Lecture( doc );
 	}
 });
 
@@ -46,4 +45,8 @@ Lecture = new Meteor.Collection('lecture', {
  *   - createdBy
  *   - createdOn
  */
-Speaker = new Meteor.Collection('speaker');
+Speaker = new Meteor.Collection('speaker', {
+	transform: function( doc ){
+		return new Model.Speaker( doc );
+	}
+});

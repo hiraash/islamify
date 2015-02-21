@@ -1,4 +1,6 @@
 Meteor.startup(function (){
+	// Lecture.remove({});
+	// Speaker.remove({});
 
 	if ( Lecture.find().count() == 0 ){
 
@@ -15,6 +17,12 @@ Meteor.startup(function (){
 
 		Lecture.insert({
 			title : 'Ego And Fame  - “Nose In the Air, Feet Off The Ground”',
+			audio: [{
+				file: '1',
+				type: 'mp3',
+				contentType: 'audio/mp3',
+				length: 4346
+			}],
 			speakerID: spID,
 			location: '',
 			lecturedOn: '',
@@ -29,6 +37,12 @@ Meteor.startup(function (){
 
 		Lecture.insert({
 			title : 'Sadaqa Ja- Riyah Best Returns On Invesment',
+			audio: [{
+				file: '3',
+				type: 'mp3',
+				contentType: 'audio/mp3',
+				length: 2202
+			}],
 			speakerID: spID,
 			location: '',
 			lecturedOn: '',
@@ -54,6 +68,12 @@ Meteor.startup(function (){
 
 		Lecture.insert({
 			title : 'Nikha and Family Life',
+			audio: [{
+				file: '2',
+				type: 'mp3',
+				contentType: 'audio/mp3',
+				length: 7921
+			}],
 			speakerID: spID,
 			location: '',
 			lecturedOn: '',
