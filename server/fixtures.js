@@ -73,6 +73,11 @@ Meteor.startup(function (){
 				type: 'mp3',
 				contentType: 'audio/mp3',
 				length: 7921
+			},{
+				file: '4',
+				type: 'mp3',
+				contentType: 'audio/mp3',
+				length: 8803
 			}],
 			speakerID: spID,
 			location: '',

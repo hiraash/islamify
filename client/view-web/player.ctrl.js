@@ -13,18 +13,36 @@ Player = function() {
 	/**
 	 * The current active lecture in the player.
 	 */
-	var _lecture;
+	var _lecture = function(){
+		return Lecture.findOne({ _id: PlayList.current() });
+	};
+	/**
+	 * The part of the lecure that is current.
+	 * Only applies to lecture with multiple files
+	 * @type {Number}
+	 */
 	var _part = 0;
 
-
-	var setMedia = function(){
-		if( _lecture ){
+	var _setMedia = function(){
+		if( _lecture() ){
             $(player).jPlayer("setMedia", {
-				title: _lecture.title() + ' by ' + _lecture.speaker().name(),
-				mp3: 'http://localhost:3000/' + _lecture.file()
+				title: _lecture().title() + ' by ' + _lecture().speaker().name(),
+				mp3: 'http://localhost:3000/' + _lecture().file()
             });
 		}
-	}
+	};
+
+	var _play = function() {
+		$(player).jPlayer("play");
+	};
+
+	Meteor.autorun( function(){
+		if( PlayList.current() && _ready ){
+			_setMedia();
+			_play();
+			console.log( "PlayList.current()" );
+		}
+	});
 
 	return {
 
@@ -41,10 +59,10 @@ Player = function() {
 				    $(player).jPlayer({
 				        ready: function(event) {
 				        	_ready = true;
-							setMedia();
+							_setMedia();
 
 							if( _playOnReady ){
-								$(player).jPlayer("play");	
+								_play();	
 								_playOnReady = false;
 							}
 				        },
@@ -105,17 +123,13 @@ Player = function() {
 			}
 		},
 
-		set: function( lectureID ){
-			_lecture = Lecture.findOne({ _id: lectureID });
-
-			if ( _ready ) {
-				setMedia();
-			}
+		lecture: function() {
+			return _lecture();
 		},
 
 		play: function() {
 			if( _ready ){
-				$(player).jPlayer("play");
+				_play();
 			} else {
 				_playOnReady = true;
 			}

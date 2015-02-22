@@ -14,10 +14,34 @@ PlayList = function(){
 	var PlayListColl = new Meteor.Collection('playlist');
 	PlayListColl._collection.insert( {list: []} );
 
-	var addList = function( lectureID ) {
-		var obj = PlayListColl.findOne();
-		obj.list.push( lectureID );
-		PlayListColl._collection.update({_id: obj._id}, { $set:{ list: obj.list } });
+	/**
+	 * Adds a lecture to the top or bottom. considers existing
+	 * items as well.
+	 * @param {String} lectureID The lecture
+	 * @param {Boolean} top      True to add to the top. If item already
+	 *                           exists, it will be moved to top
+	 */
+	var addToList = function( lectureID, top ) {
+		if ( PlayListColl.find({ list: lectureID }).count() == 0 ) { 
+			var obj = PlayListColl.findOne();
+
+			if (top){ 
+				obj.list.unshift( lectureID );
+			} else { 
+				obj.list.push( lectureID );
+			}
+
+			PlayListColl._collection.update({_id: obj._id}, { $set:{ list: obj.list } });
+
+		} else if (top) {
+			var obj = PlayListColl.findOne();
+			
+			var i = obj.list.indexOf( lectureID );
+			obj.list.splice(i, 1);
+			obj.list.unshift( lectureID );
+
+			PlayListColl._collection.update({_id: obj._id}, { $set:{ list: obj.list } });
+		}
 	}
 
 	return {
@@ -34,19 +58,16 @@ PlayList = function(){
 			return (PlayListColl.find({ list: lectureID }).count() > 0);
 		},
 
-		add: function ( lectureID ) {
-			if ( !this.hasLecture( lectureID ) ){
-				addList( lectureID );
+		current: function(){
+			return PlayListColl.findOne().list[0];
+		},
 
-				if ( this.length() == 1 ){
-					Player.set( lectureID );
-				}
-			}
+		add: function ( lectureID ) {
+			addToList( lectureID );
 		},
 
 		play: function ( lectureID ) {
-			this.add( lectureID );
-			Player.set( lectureID );
+			addToList( lectureID, true )
 			Player.play();
 		}
 

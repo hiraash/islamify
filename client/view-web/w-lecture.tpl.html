@@ -6,7 +6,9 @@
 			<div class="lecture-title">{{title}}
 				<span class="label label-warning lecture-language">{{language}}</span>
 			</div>
-			<div class="lecture-speaker">{{speaker.name}}</div>
+			{{#with speaker}}
+			<div class="lecture-speaker">{{name}}</div>
+			{{/with}}
 			<div>
 				{{#each tags}}
 					<span class="label label-default lecture-tag">{{this}}</span>

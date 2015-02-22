@@ -6,7 +6,20 @@ Template.wPlayer.helpers({
 		}
 
 		return PlayList.isActive();
+	},
+
+	lecture: function(){
+		return Player.lecture();
+	},
+
+	multiFile: function () {
+		if( this.isMultiPart() ){
+			return 'wp-icon-disabled';
+		} else {
+			return 'wp-icon-hidden';
+		}
 	}
+
 
 });
 
