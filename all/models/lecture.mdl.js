@@ -38,8 +38,10 @@ Model.Lecture.prototype.language = function() {
 	return this._data.language;
 }
 
-Model.Lecture.prototype.file = function() {
-	var part = this._data.audio[0];
+Model.Lecture.prototype.file = function(part) {
+	if ( !part ) part = 0;
+
+	var part = this._data.audio[ part ];
 	return part.file + '.' + part.type;
 }
 
@@ -48,7 +50,11 @@ Model.Lecture.prototype.file = function() {
  */
 
  Model.Lecture.prototype.isMultiPart = function() {
- 	return this._data.audio.length > 1;
+ 	return this.noOfParts() > 1;
+ }
+
+ Model.Lecture.prototype.noOfParts = function() {
+ 	return this._data.audio.length;
  }
 
  /** 

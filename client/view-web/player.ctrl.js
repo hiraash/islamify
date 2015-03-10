@@ -21,13 +21,13 @@ Player = function() {
 	 * Only applies to lecture with multiple files
 	 * @type {Number}
 	 */
-	var _part = 0;
+	var _part = 'player-part';
+	Session.set( _part, 0 );
 
 	var _setMedia = function(){
 		if( _lecture() ){
             $(player).jPlayer("setMedia", {
-				title: _lecture().title() + ' by ' + _lecture().speaker().name(),
-				mp3: 'http://localhost:3000/' + _lecture().file()
+				mp3: 'http://localhost:3000/' + _lecture().file( Session.get(_part) )
             });
 		}
 	};
@@ -36,8 +36,10 @@ Player = function() {
 		$(player).jPlayer("play");
 	};
 
-	Meteor.autorun( function(){
-		if( PlayList.current() && _ready ){
+	Tracker.autorun( function(){
+		//The conditions on this line are mostly to trigger reactivity when 
+		//these values change
+		if( PlayList.current() && Session.get(_part) >= 0 && _ready ){
 			_setMedia();
 			_play();
 			console.log( "PlayList.current()" );
@@ -115,6 +117,8 @@ Player = function() {
 						}
 					});
 
+					
+
 					Meteor.clearTimeout(timer);
 
 				}, 10 ); //Meteor.setInterval
@@ -135,12 +139,32 @@ Player = function() {
 			}
 		},
 
-		next: function(){
+		part: function() {
+			return Session.get(_part) + 1;
+		},
 
+		reset: function() {
+			return Session.set(_part, 0);
+		},
+
+		hasNext: function(){
+			return this.part() < _lecture().noOfParts();
+		},
+
+		hasPrevious: function() {
+			return this.part() > 1;
+		},
+
+		next: function(){
+			if( this.hasNext() ){
+				Session.set(_part, Session.get(_part) + 1 );
+			}
 		},
 
 		previous: function() {
-
+			if( this.hasPrevious() ){
+				Session.set(_part, Session.get(_part) - 1 );
+			}
 		}
 	};
 

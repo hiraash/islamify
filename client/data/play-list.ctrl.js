@@ -67,7 +67,8 @@ PlayList = function(){
 		},
 
 		play: function ( lectureID ) {
-			addToList( lectureID, true )
+			addToList( lectureID, true );
+			Player.reset();
 			Player.play();
 		}
 

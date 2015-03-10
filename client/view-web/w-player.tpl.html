@@ -7,7 +7,7 @@
 		<div class="row-fluid">
 		
 			{{#with lecture}}
-			
+
 			<div class="wp-speaker-image"></div>
 
 			<div id="jp-control" class="jp-jplayer"></div>
@@ -16,7 +16,8 @@
 					<div class="jp-gui jp-interface">
 						<div class="jp-controls-holder wp-control-area row-fluid">
 							<div class="jp-controls wp-row">
-								<div class="wp-small-icon {{multiFile}}" role="button" area-label="Previous">
+								<div class="wp-small-icon wp-control-previous {{controlPrevious}}" role="button" area-label="Previous"
+									data-toggle="tooltip" data-placement="top" title="{{previousPart}}">
 									<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
 								</div>
 								<div class="jp-play wp-control-icon" role="button" tabindex="0" area-label="Play">
@@ -25,7 +26,8 @@
 								<div class="jp-pause wp-control-icon" role="button" tabindex="0" area-label="Pause">
 									<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
 								</div>
-								<div class="wp-small-icon {{multiFile}}" role="button"  area-label="Next">
+								<div class="wp-small-icon wp-control-next {{controlNext}}" role="button"  area-label="Next"
+									data-toggle="tooltip" data-placement="top" title="{{nextPart}}">
 									<span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
 								</div>
 							</div>
@@ -56,7 +58,12 @@
 						</div>
 					</div>
 					<div class="jp-details">
-						<div class="jp-title wp-row wp-title-area" aria-label="title">&nbsp;</div>
+						<div class="wp-row wp-title-area">
+							<span class="wp-title">{{title}}
+								<span class="wp-title-part">{{partTitle}}</span>
+							</span>
+							<span class="wp-title-speaker">by {{speaker.name}}</span>
+						</div>
 					</div>
 					<div class="jp-no-solution">
 						<span>Update Required</span>

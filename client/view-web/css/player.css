@@ -41,13 +41,27 @@
 
 .wp-control-area {
 	width: auto;
-	height: 50px;
+	height: 45px;
 }
 
 .wp-title-area {
 	text-align: left;
+	margin-left: 15px;
+}
+
+.wp-title {
+	font-size: 24px;
+}
+
+.wp-title-speaker {
 	font-size: 18px;
-	margin-left: 10px;
+	font-weight: 50;	
+	font-style: italic;
+	padding-left: 10px;
+}
+
+.wp-title-part {
+	color:  #990100;
 }
 
 .wp-control-icon {
