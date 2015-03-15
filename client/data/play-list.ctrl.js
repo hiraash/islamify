@@ -12,64 +12,127 @@ PlayList = function(){
 	 * @type {Mongo Collection}
 	 */
 	var PlayListColl = new Meteor.Collection('playlist');
-	PlayListColl._collection.insert( {list: []} );
+	// PlayListColl._collection.insert( {list: []} );
 
 	/**
-	 * Adds a lecture to the top or bottom. considers existing
-	 * items as well.
-	 * @param {String} lectureID The lecture
-	 * @param {Boolean} top      True to add to the top. If item already
-	 *                           exists, it will be moved to top
+	 * Returns the top playlist item (currently playing item)
+	 * @return {Object} lecture status
 	 */
-	var addToList = function( lectureID, top ) {
-		if ( PlayListColl.find({ list: lectureID }).count() == 0 ) { 
-			var obj = PlayListColl.findOne();
+	var _top = function () {
+		return PlayListColl.findOne({}, { sort: { order: 1 } });
+	}
 
-			if (top){ 
-				obj.list.unshift( lectureID );
-			} else { 
-				obj.list.push( lectureID );
-			}
+	/**
+	 * Returns the bottom most playlist item
+	 * @return {Object} lecutre status
+	 */
+	var _bottom = function () {
+		return PlayListColl.findOne({}, { sort: { order: -1 } });
+	}
 
-			PlayListColl._collection.update({_id: obj._id}, { $set:{ list: obj.list } });
+	/**
+	 * Indicates the lecture exists in the playlist or not
+	 * @param  {String}  lectureID id of the lecture
+	 * @return {Boolean}           
+	 */
+	var _hasLecture = function( lectureID ){
+		return (PlayListColl.find({ _id: lectureID }).count() > 0);
+	}
 
-		} else if (top) {
-			var obj = PlayListColl.findOne();
-			
-			var i = obj.list.indexOf( lectureID );
-			obj.list.splice(i, 1);
-			obj.list.unshift( lectureID );
+	var _isEmpty = function(){
+		return (PlayListColl.find().count() == 0);
+	}
 
-			PlayListColl._collection.update({_id: obj._id}, { $set:{ list: obj.list } });
+	/**
+	 * Add to the top of the playlist and make it the current playing item
+	 * @param {String} 	lectureID lecture id
+	 * @param {long} 	time      The point to start playing from(optional)
+	 * @param {int} 	part      The part to start playing(optional)
+	 */
+	var _addToTop = function( lectureID, time, part ){
+		var order = 100; //Default starting order number
+		if( !_isEmpty() ){ 
+			order = _top().order - 1;
 		}
+
+		//If this lecture doenst already exist in the playlist add at bottom.
+		if ( !_hasLecture(lectureID) ) { 
+			_addToList( lectureID, order, time, part )
+		} else {
+			PlayListColl._collection.update({ _id: lectureID }, { order: order });
+		}
+	}
+
+	/**
+	 * Add to the bottom of the playlist.
+	 * @param {String} 	lectureID lecture id
+	 * @param {long} 	time      The point to start playing from(optional)
+	 * @param {int} 	part      The part to start playing(optional)
+	 */
+	var _addToBottom = function( lectureID, time, part ){
+		//If nothing exists in the playlist add to top
+		if( _isEmpty() ){ 
+			_addToTop(lectureID, time, part)
+		} else { 
+
+			//If this lecture doenst already exist in the playlist add at bottom.
+			if ( !_hasLecture( lectureID ) ) { 
+				_addToList( lectureID, _bottom().order + 1, time, part )
+			}
+		}
+	}
+
+	/**
+	 * Adds a lecture to the list
+	 * @param {String} 	lectureID lecture id
+	 * @param {int} 	order     the order to add in
+	 * @param {long} 	time      The point to start playing from(optional)
+	 * @param {int} 	part      The part to start playing(optional)
+	 */
+	var _addToList = function ( lectureID, order, time, part ){
+		var listItem =  { _id: lectureID, order: order };
+
+		if( time ){
+			listItem.time = time;
+		}
+
+		if( part ){
+			listItem.part = part;
+		}
+
+		PlayListColl._collection.insert( listItem );
 	}
 
 	return {
 
 		isActive: function (){
-			return (this.length() > 0);
+			return !_isEmpty();
 		},
 
 		length: function() {
-			return PlayListColl.findOne().list.length;
+			return PlayListColl.find().count();
 		},
 
 		hasLecture: function ( lectureID ) {
-			return (PlayListColl.find({ list: lectureID }).count() > 0);
+			return _hasLecture( lectureID );
 		},
 
 		current: function(){
-			return PlayListColl.findOne().list[0];
+			return _top() != undefined ? _top()._id : null;
 		},
 
 		add: function ( lectureID ) {
-			addToList( lectureID );
+			_addToBottom( lectureID );
 		},
 
 		play: function ( lectureID ) {
-			addToList( lectureID, true );
+			_addToTop( lectureID );
 			Player.reset();
 			Player.play();
+		},
+
+		c: function(){
+			return PlayListColl;
 		}
 
 	};
