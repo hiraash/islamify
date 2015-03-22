@@ -83,6 +83,17 @@ Template.wPlayer.events({
 
 	'click .wp-control-previous': function () {
 		Player.previous();
+	},
+
+	'load .wp-speaker-image': function( event ){
+
+		var img = $(event.target);
+		if ( img.width() > img.height() ) {
+			img.width("100%");
+		} else {
+			img.height("100%");
+		}
+
 	}
 
 });

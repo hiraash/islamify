@@ -1,0 +1,20 @@
+{
+    "isDevelopment":true,
+
+    "aws": {
+        "accessKeyId": "xxxx",
+        "secretAccessKey": "xxxxxx"
+    },
+
+    "public": {
+        "isDevelopment":true,
+
+        "storageServiceUrl": "https://s3.amazonaws.com/",
+
+        "buckets" : {
+            "lecture" : "test-lecture",
+            "speakerPic": "test-speaker-pic"
+        }
+    }
+
+}

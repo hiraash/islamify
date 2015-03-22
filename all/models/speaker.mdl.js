@@ -17,3 +17,11 @@ Model.Speaker.prototype.constructor = Model.Speaker;
 Model.Speaker.prototype.name = function() {
 	return this._data.name;
 }
+
+Model.Speaker.prototype.picture = function() {
+	return this._data.picture;
+}
+
+Model.Speaker.prototype.pictureUrl= function() {
+	return Settings.storageServiceUrl + Settings.buckets.speakerPic + '/' + this.picture();
+}

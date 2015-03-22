@@ -16,16 +16,27 @@ li.lecture {
 	border-top-color: #c2c2c2;
 }
 
-.lecture-image {
+.lecture-image-container{
+	position: absolute;
 	width: 70px;
 	height: 70px;
-	margin-top: 10px;
-	margin-right: 10px;
-	border: solid;
-	border-width: 1px;
-	border-color: #c2c2c2;
+	background: #FFF;
+	border: none;
 	border-radius: 35px;
-	float: left;
+
+	position: relative;
+    overflow:hidden;
+    text-align:center;
+    background: #999999;
+    float: left;
+
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.lecture-image {
+	float: none;
+	margin: 0 auto;
 }
 
 .lecture-title {

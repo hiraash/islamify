@@ -129,12 +129,7 @@ PlayList = function(){
 			_addToTop( lectureID );
 			Player.reset();
 			Player.play();
-		},
-
-		c: function(){
-			return PlayListColl;
 		}
-
 	};
 
 }();

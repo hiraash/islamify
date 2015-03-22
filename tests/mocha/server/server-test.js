@@ -4,10 +4,10 @@ if (!(typeof MochaWeb === 'undefined')){
   
     describe("Server general tests", function(){
 
-		it("should ensure Server.isDevelopment is correct", function(){
-			var isDev = ( process.env.NODE_ENV == 'development' );
-			chai.assert( isDev == Server.isDevelopment() );
-		});
+		// it("should ensure Server.isDevelopment is correct", function(){
+		// 	var isDev = ( process.env.NODE_ENV == 'development' );
+		// 	chai.assert( isDev == Server.isDevelopment() );
+		// });
 
 
     });

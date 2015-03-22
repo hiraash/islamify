@@ -7,7 +7,7 @@ Meteor.startup(function (){
 		var spID = Speaker.insert({ 
 			name: 'Mufti Ismail Menk',
 			nationality: 'Zimbabwe',
-			picture: '',
+			picture: '1.jpg',
 			bio: 'He is a student of knowledge trying to disseminate the Deen in the current age.',
 			facebookPage: 'https://www.facebook.com/muftimenk',
 			website: 'http://www.muftimenk.com/',
@@ -58,7 +58,7 @@ Meteor.startup(function (){
 		spID = Speaker.insert({ 
 			name: 'Mufthi Yoosuf Haniffa',
 			nationality: 'Sri Lanka',
-			picture: '',
+			picture: '2.jpg',
 			bio: 'He is a prominent and respected Islamic scholar in Sri Lanka.',
 			facebookPage: '',
 			website: '',

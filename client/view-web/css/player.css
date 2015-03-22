@@ -1,7 +1,7 @@
 .wp-container {
 	position: fixed;
 	bottom: 0px;
-	width: 100%;
+	width: 200%;
 	height: 100px;
 
 	background-color: #ffffff;
@@ -13,16 +13,31 @@
 
 }
 
-.wp-speaker-image {
+.wp-player {
+	width: 50%;
+}
+
+.wp-speaker-image-container {
+	position: absolute;
 	width: 80px;
 	height: 80px;
-	margin-left: 10px;
-	margin-right: 10px;
-	border: solid;
-	border-width: 1px;
-	border-color: #c2c2c2;
+	background: #FFF;
+	border: none;
 	border-radius: 40px;
-	float: left;
+
+	position: relative;
+    overflow:hidden;
+    text-align:center;
+    background: #999999;
+    float: left;
+
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.wp-speaker-image {
+	float: none;
+	margin: 0 auto;
 }
 
 .wp-row {
@@ -128,4 +143,11 @@
 	left: 80%;
 }
 
-
+.wp-slide-button {
+	right: 0px;
+	width: 10px;
+	height: 100%;
+	color: #FFFFFF;
+	background-color: #F6F6F6;
+	
+}

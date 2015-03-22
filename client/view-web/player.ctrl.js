@@ -27,7 +27,7 @@ Player = function() {
 	var _setMedia = function(){
 		if( _lecture() ){
             $(player).jPlayer("setMedia", {
-				mp3: 'http://localhost:3000/' + _lecture().file( Session.get(_part) )
+				mp3: Settings.storageServiceUrl + Settings.buckets.lecture + '/' + _lecture().file( Session.get(_part) )
             });
 		}
 	};
