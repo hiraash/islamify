@@ -92,6 +92,7 @@
 .wp-path-bar {
 	height: 5px;
 	background-color: #CFCFCF;
+	position: relative;
 }
 
 .wp-value-bar {
@@ -109,7 +110,6 @@
 
 .wp-volume-bar {
 	width: 100px;
-	position: absolute;
 	margin-top: -5px;
 }
 
@@ -124,10 +124,17 @@
 
 .wp-play-handle{
 	display: none;
-	margin-left: 10px;
 }
 
 .wp-volume-handle{
 	left: 80%;
+}
+
+.wp-volume-controls {
+	margin-left: 15px;
+}
+
+.jp-mute, .jp-unmute {
+	margin-right: 5px;
 }
 
