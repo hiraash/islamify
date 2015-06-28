@@ -2,18 +2,22 @@
 
 	{{> wHeader}}
 
-	<div class="container">
-		<div class="g-body">
-			{{> yield}}
+	<div class="container-fluid main-body">
+		<div class="row">
+			<div class="{{playerActive}}">
+				{{> yield}}
+			</div>
+
+			{{> wPlayer}}
+
 		</div>
 	</div>
 
-	<footer class="{{playerActive}}">
-		<div class="container">
+	<footer>
+		<div class="container-fluid">
 			This is the web footer
 		</div>
 	</footer>
-
-	{{> wPlayer}}
+	
 
 </template>

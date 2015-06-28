@@ -6,19 +6,11 @@
 	font-family: 'Lato';
 }
 
-h1 {
-	font-family: 'Lato';
-	font-weight: 200;
-}
-
-header {
-	background-color: #F6F6F6;
-	padding: 10px;
-	position: fixed;
+.w-header {
+	background-color: #37886A;
 	height: 80px;
-	width: 100%;
-	top: 0px;
-	z-index: 999;
+	color: #FFFFFF;
+	font-style: italic;
 }
 
 footer {
@@ -26,12 +18,10 @@ footer {
 	padding: 10px;
 }
 
-.g-footer-bump {
-	margin-bottom: 100px;
+.container-fluid {
+	max-width: 1200px;
 }
 
-.g-body {
-	height: 1000px;
-	padding-bottom: 10px;
+.main-body {
 	margin-top: 80px;
 }

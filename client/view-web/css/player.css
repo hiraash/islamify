@@ -1,38 +1,20 @@
-.wp-container {
-	position: fixed;
-	bottom: 0px;
-	width: 200%;
-	height: 100px;
-
-	background-color: #ffffff;
-	border-top: solid;
-	border-top-width: 1px;
-	border-top-color: #c2c2c2;
-
-	overflow: none;
-
-}
-
 .wp-player {
-	width: 50%;
+	background-color: #EBEBEB;
+
 }
 
 .wp-speaker-image-container {
-	position: absolute;
 	width: 80px;
 	height: 80px;
-	background: #FFF;
 	border: none;
 	border-radius: 40px;
 
-	position: relative;
     overflow:hidden;
     text-align:center;
     background: #999999;
     float: left;
 
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 .wp-speaker-image {
@@ -43,8 +25,6 @@
 .wp-row {
 	display: inline-block;
 	vertical-align: middle;
-	margin-left: 10px;
-	margin-right: 10px;
 }
 
 .wp-player-area {
@@ -54,22 +34,16 @@
 	margin-bottom: 10px;
 }
 
-.wp-control-area {
-	width: auto;
-	height: 45px;
-}
-
 .wp-title-area {
 	text-align: left;
-	margin-left: 15px;
 }
 
 .wp-title {
-	font-size: 24px;
+	font-size: 18px;
 }
 
 .wp-title-speaker {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 50;	
 	font-style: italic;
 	padding-left: 10px;
@@ -79,11 +53,14 @@
 	color:  #990100;
 }
 
+.jp-controls-holder {
+	margin-top: 15px;
+}
+
 .wp-control-icon {
 	display: inline-block;
 	font-size: 32px;
-	margin-left: 13px;
-	margin-right: 10px;
+	margin-right: 12px;
 	vertical-align: middle;
 }
 
@@ -91,10 +68,11 @@
 	display: inline-block;
 	font-size: 24px;
 	vertical-align: middle;
+	margin-right: 12px;
 }
 
 .wp-icon-disabled {
-	color: #F6F6F6;
+	color: #CFCFCF;
 }
 
 .wp-icon-hidden {
@@ -102,18 +80,18 @@
 }
 
 .wp-progress-bar {
-	width: 700px;
+	width: 100%;
 }
 
 .wp-seek-bar {
-	width: 700px;
-	position: absolute;
+	width: 100%;
+	margin-top: 15px;
+	margin-bottom: 10px;
 }
 
 .wp-path-bar {
 	height: 5px;
-	background-color: #F6F6F6;
-	margin-top: -3px;
+	background-color: #CFCFCF;
 }
 
 .wp-value-bar {
@@ -121,14 +99,23 @@
 	height: 5px;
 }
 
+.wp-time {
+	font-size: 12px;
+}
+
+.jp-duration {
+	float: right;
+}
+
 .wp-volume-bar {
 	width: 100px;
 	position: absolute;
+	margin-top: -5px;
 }
 
 .wp-bar-handle {
 	position: absolute;
-	background-color: #990100;
+	background-color: #222E46;
 	height: 15px;
 	width: 4px;
 	margin-top: -10px;
@@ -137,17 +124,10 @@
 
 .wp-play-handle{
 	display: none;
+	margin-left: 10px;
 }
 
 .wp-volume-handle{
 	left: 80%;
 }
 
-.wp-slide-button {
-	right: 0px;
-	width: 10px;
-	height: 100%;
-	color: #FFFFFF;
-	background-color: #F6F6F6;
-	
-}
