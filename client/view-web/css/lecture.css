@@ -4,7 +4,7 @@ ul {
 	padding-left: 0px;
 	border-bottom: solid;
 	border-bottom-width: 1px;
-	border-bottom-color: #c2c2c2; 
+	border-bottom-color: #EBEBEB; 
 }
 
 li.lecture {
@@ -13,7 +13,7 @@ li.lecture {
 	padding-right: 10px;
 	border-top: solid;
 	border-top-width: 1px;
-	border-top-color: #c2c2c2;
+	border-top-color: #EBEBEB;
 }
 
 .lecture-image-container{
