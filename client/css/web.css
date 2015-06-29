@@ -1,0 +1,26 @@
+ul.w-ul {
+	list-style-type: none;
+	margin: 0px;
+	padding-left: 0px;
+	border-bottom: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #EBEBEB; 
+}
+
+.w-image-container {
+	border: none;
+	position: relative;
+    overflow:hidden;
+    text-align:center;
+    background: #999999;
+    float: left;
+}
+
+.w-speaker-image {
+	float: none;
+	margin: 0 auto;
+}
+
+.w-row-align {
+	text-align: left;
+}

@@ -1,12 +1,3 @@
-ul {
-	list-style-type: none;
-	margin: 0px;
-	padding-left: 0px;
-	border-bottom: solid;
-	border-bottom-width: 1px;
-	border-bottom-color: #EBEBEB; 
-}
-
 li.lecture {
 	height: 90px;
 	padding-left: 10px;
@@ -16,7 +7,16 @@ li.lecture {
 	border-top-color: #EBEBEB;
 }
 
-.lecture-image-container{
+.l-image-container {
+	width: 70px;
+	height: 70px;
+	border-radius: 35px;
+
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+/*.lecture-image-container{
 	position: absolute;
 	width: 70px;
 	height: 70px;
@@ -32,12 +32,12 @@ li.lecture {
 
     margin-top: 10px;
     margin-right: 20px;
-}
+}*/
 
-.lecture-image {
+/*.lecture-image {
 	float: none;
 	margin: 0 auto;
-}
+}*/
 
 .lecture-title {
 	margin-top: 5px;

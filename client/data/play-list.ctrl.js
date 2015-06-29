@@ -31,6 +31,16 @@ PlayList = function(){
 	}
 
 	/**
+	 * Returns all lectures that are currently in the playlist in
+	 * the correct order except the first one which is playing or
+	 * ready to play
+	 * @return {Cursor} PlayList cursor
+	 */
+	var _all = function () {
+		return PlayListColl.find({}, { sort: { order: 1 }, skip: 1 });
+	}
+
+	/**
 	 * Indicates the lecture exists in the playlist or not
 	 * @param  {String}  lectureID id of the lecture
 	 * @return {Boolean}           
@@ -115,6 +125,10 @@ PlayList = function(){
 
 		hasLecture: function ( lectureID ) {
 			return _hasLecture( lectureID );
+		},
+
+		lectures: function () {
+			return _all();
 		},
 
 		current: function(){

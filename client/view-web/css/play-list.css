@@ -1,3 +1,31 @@
 .wp-playlist {
 	height:800px;
 }
+
+li.wp-playlist-item {
+	min-height: 70px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-top: solid;
+	border-top-width: 1px;
+	border-top-color: #EBEBEB;
+}
+
+.wp-pli-image-container {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+.wp-pli-title {
+	margin-top: 5px;
+	font-size: 18px;
+}
+
+.wp-pli-speaker {
+	font-size: 16px;
+	font-style: italic;
+}

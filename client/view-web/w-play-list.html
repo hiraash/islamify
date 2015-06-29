@@ -2,8 +2,25 @@
 
 	{{#if active}}
 	<div class="wp-playlist">
+		<ul class="w-ul">
+		{{#each lectures}}
+			{{#with lecture}}
+			
+			<li class="row-fluid wp-playlist-item">
+				<div class="wp-pli-image-container w-image-container">
+					<img class="w-speaker-image wp-pli-image" src="{{speaker.pictureUrl}}">
+				</div>
+				<div class="w-row-align">
+					<div class="wp-pli-title">{{title}}</div>
+					{{#with speaker}}
+						<div class="wp-pli-speaker">{{name}}</div>
+					{{/with}}
+				</div>
+			</li>
 
-
+			{{/with}}
+		{{/each}}
+		</ul>
 	</div>
 	{{/if}}
 
